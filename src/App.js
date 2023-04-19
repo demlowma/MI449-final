@@ -49,7 +49,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Bar />
+       <Bar />
        <Champions />
        <Disclaimer />
       </header>
