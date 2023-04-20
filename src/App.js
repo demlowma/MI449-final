@@ -43,7 +43,7 @@ function Disclaimer() {
       opinions of Riot Games or anyone officially involved in producing or managing Riot Games properties. 
       Riot Games, and all associated properties are trademarks or registered trademarks of Riot Games, Inc.</p>
   )
-}
+} 
 
 function App() {
   return (
