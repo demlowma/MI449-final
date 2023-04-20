@@ -35,7 +35,7 @@ function Champions() {
     }
     </table>
   )
-}
+} 
 
 function Disclaimer() {
   return (
