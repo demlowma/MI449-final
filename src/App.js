@@ -1,15 +1,17 @@
 import { useState } from 'react';
 import { supabase } from './supabaseClient';
-import logo from './logo.svg';
+//import logo from './logo.svg';
+import './mvp.css';
 import './App.css';
 
 function Bar() {
   return (
-  <div className="br">
+  <div className="bar">
     <h1>POCKET LEAGUE</h1>
   </div>
   )
 }
+
 
 function Champions() {
   const [myChampions, setMyChampions] = useState([]);
@@ -22,14 +24,21 @@ function Champions() {
   getChampions();
   return (
     <table>
+      <tr>
+        <th>CHAMPION</th>
+        <th>ROLE</th>
+        <th>POSITION</th>
+        <th>DIFFICULTY</th>
+        <th>NUMBER OF SKINS</th>
+      </tr>
     {
       myChampions.map(b => (
-        <tr>
+        <tr className="champions">
           <td>{b.champion}</td>
           <td>{b.role}</td>
           <td>{b.position}</td>
-          <td>{b.number_of_skins}</td>
           <td>{b.difficulty}</td>
+          <td>{b.number_of_skins}</td>
         </tr>
       ))
     }
@@ -39,7 +48,7 @@ function Champions() {
 
 function Disclaimer() {
   return (
-    <p>Pocket League isn't endorsed by Riot Games and doesn't reflect the views or 
+    <p style={{fontSize: 12}}>Pocket League isn't endorsed by Riot Games and doesn't reflect the views or 
       opinions of Riot Games or anyone officially involved in producing or managing Riot Games properties. 
       Riot Games, and all associated properties are trademarks or registered trademarks of Riot Games, Inc.</p>
   )
