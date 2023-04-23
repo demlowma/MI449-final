@@ -1,12 +1,13 @@
 import { useState } from 'react';
 import { supabase } from './supabaseClient';
+import axios from 'axios';
 //import logo from './logo.svg';
 import './mvp.css';
 import './App.css';
 
 function Bar() {
   return (
-  <div className="bar">
+  <div className="bar" height="60">
     <h1>POCKET LEAGUE</h1>
   </div>
   )
@@ -55,14 +56,50 @@ function Disclaimer() {
 } 
 
 function App() {
+
+  const [searchText, setSearchText] = useState("");
+  const [playerData, setPlayerData] = useState({});
+  const API_KEY = "RGAPI-0bf6cae2-b121-48cd-84b7-604f0630c651";
+
+  function searchForPlayer(event) {
+    var APICallString = "https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-name/" + searchText + "?api_key=" + API_KEY;
+
+    axios.get(APICallString).then(function (response) {
+      //success
+      setPlayerData(response.data);
+    }).catch(function (error) {
+      //error
+      console.log(error);
+    });
+  }
+
+  console.log(playerData);
+
   return (
     <div className="App">
-      <header className="App-header">
-       <Bar />
-       <Champions />
-       <Disclaimer />
-      </header>
-    </div>
+      <div className="bar-header">
+        <h1>POCKET LEAGUE</h1>
+      </div>
+      <div className="playerinfo">
+       <input className="summonertext" type="text" placeholder="Enter summoner name" onChange={e => setSearchText(e.target.value)}></input>
+       <button onClick={e => searchForPlayer(e)}>Search for Player</button>
+      </div> 
+      {JSON.stringify(playerData) != '{}' ? 
+      <>
+      <p>{playerData.name}</p>
+      <img width="100" height="100" src={"http://ddragon.leagueoflegends.com/cdn/13.8.1/img/profileicon/" + playerData.profileIconId + ".png"}></img>
+      <p>Summoner level: {playerData.summonerLevel}</p>
+      </> 
+      : 
+      <><p>Sorry, no player data found.</p></>
+    
+      }
+      <div className="tableanddisclaimer">
+        <h2>CHAMPIONS</h2>
+        <Champions />
+        <Disclaimer />
+      </div>
+    </div> //top div ending (app)
   );
 } 
 

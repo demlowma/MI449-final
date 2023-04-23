@@ -39,28 +39,39 @@
 
 h1 {
   color: #FFE600;
-  text-align: right;
-  padding: 40 px;
+  background-color: #252525;
+  font-size: 50px;
+  text-align: center;
 }
 
 p {
   color: #000000;
-  padding: 30px;
+  text-align: center;
+}
+
+table {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 tr {
   color: #000000;
 }
 
-.bar {
-  height: 30 px;
-  width: 132% ;
+.bar-header {
   background-color: #252525;
-  padding: 10px;
-  margin: 0;
-  padding: 0;
+  height: 200 px;
+  width: 132% ;
+  text-align: center;
+  align-items: center;
 }
 
 th {
   background-color: #FFE600;
+}
+
+.summonertext {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
 }
