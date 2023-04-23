@@ -95,7 +95,7 @@ function App() {
     
       }
       <div className="tableanddisclaimer">
-        <h2>CHAMPIONS</h2>
+        <h2>ALL CHAMPIONS</h2>
         <Champions />
         <Disclaimer />
       </div>
