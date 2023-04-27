@@ -59,7 +59,7 @@ function App() {
 
   const [searchText, setSearchText] = useState("");
   const [playerData, setPlayerData] = useState({});
-  const API_KEY = "RGAPI-0bf6cae2-b121-48cd-84b7-604f0630c651";
+  const API_KEY = "	RGAPI-a283762a-ab0e-4064-a0b5-081fb3e5a661";
 
   function searchForPlayer(event) {
     var APICallString = "https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-name/" + searchText + "?api_key=" + API_KEY;
